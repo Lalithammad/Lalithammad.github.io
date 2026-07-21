@@ -147,6 +147,20 @@
     padding:3px 8px; border-radius:20px; background:rgba(95,201,191,0.06);
   }
 
+  .step{
+    display:grid; grid-template-columns:34px 1fr; gap:0 16px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    font-family:var(--mono); font-size:13px; color:var(--teal); font-weight:600;
+    border:1px solid var(--line); border-radius:50%; width:26px; height:26px;
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .step h4{font-family:var(--disp); font-size:15px; margin:0 0 4px; color:var(--ink);}
+  .step p{color:var(--ink-dim); font-size:13.5px; margin:0;}
+  .ai-note{color:var(--ink-dim); font-size:14.5px; margin:18px 0 0; max-width:60ch;}
+
   footer{padding:32px 0 60px; border-top:1px solid var(--line);}
   footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; align-items:center;}
   footer p{color:var(--ink-dim); font-size:13px; margin:0; font-family:var(--mono);}
@@ -166,6 +180,7 @@
       <a href="#experience">experience</a>
       <a href="#skills">skills</a>
       <a href="#projects">projects</a>
+      <a href="#ai-workflow">ai workflow</a>
       <a href="#contact">contact</a>
     </nav>
   </div>
@@ -353,6 +368,44 @@ open for remote contract work (EU / US)<span class="cursor"></span></div>
     </div>
 
     <p style="margin-top:18px;"><a href="https://github.com/Lalithammad" target="_blank" rel="noopener">→ See more on GitHub</a></p>
+  </section>
+
+  <section id="ai-workflow">
+    <p class="eyebrow">cursor --skill feature-audit</p>
+    <h2>How I use AI in my workflow</h2>
+    <p class="section-sub">I use Cursor daily, with custom prompt workflows for the situations that come up most in Rails work. The one I lean on most: before writing a single line of code on an existing feature, I run it through a structured breakdown.</p>
+
+    <div style="display:inline-flex; align-items:center; gap:10px; background:var(--bg-raised); border:1px solid var(--line); border-radius:6px; padding:10px 16px; margin-bottom:24px; font-family:var(--mono); font-size:13px; color:var(--ink-dim);">
+      <span style="color:var(--amber); font-weight:600;">2–3 days → 5–6 hours</span>
+      <span>typical time-to-plan on an unfamiliar feature</span>
+    </div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div><h4>Understand what exists</h4><p>How the current code works, and how much of the feature is actually implemented vs. assumed.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div><h4>Surface blockers</h4><p>Anything ambiguous that needs confirming with a manager before proceeding, instead of guessing.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div><h4>High-level solution</h4><p>The overall approach, agreed before any code is written.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div><h4>Low-level solution</h4><p>Down to specific line-level changes — why each is needed, and what breaks if it's skipped.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div><h4>Testing steps</h4><p>How to verify the feature from both the Rails console and the UI.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div><h4>Test case design</h4><p>Edge cases and scenarios worth covering, so tests aren't an afterthought.</p></div>
+    </div>
+
+    <p class="ai-note">This turns a fuzzy "add this feature" ticket into a checklist I can actually execute against — and catches ambiguous requirements before they turn into rework. On features that would normally take <strong style="color:var(--ink);">2–3 days</strong> to scope and understand, this workflow gets me to a confident plan in <strong style="color:var(--ink);">5–6 hours</strong>. It doesn't replace judgment; I review and adjust every step myself.</p>
   </section>
 
   <section id="contact">
