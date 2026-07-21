@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalit Hammad — Ruby on Rails Developer</title>
+<meta name="description" content="Lalit Hammad — Senior Ruby on Rails Developer, 6+ years experience. Available for remote contract work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#10161B;
+    --bg-raised:#161E24;
+    --line:#26313A;
+    --ink:#E9EDEF;
+    --ink-dim:#8FA0AA;
+    --teal:#5FC9BF;
+    --amber:#E8A33D;
+    --amber-dim:#8a6428;
+    --radius:4px;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+    --disp:'Space Grotesk', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* ---- top bar ---- */
+  header.top{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    position:sticky; top:0; background:rgba(16,22,27,0.92); backdrop-filter:blur(6px);
+    z-index:10;
+  }
+  header.top .wrap{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:var(--mono); font-size:14px; color:var(--ink-dim);}
+  .brand strong{color:var(--ink);}
+  nav a{font-family:var(--mono); font-size:13px; color:var(--ink-dim); margin-left:20px;}
+  nav a:hover{color:var(--teal); text-decoration:none;}
+
+  /* ---- hero: terminal ---- */
+  .hero{padding:64px 0 40px;}
+  .terminal{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-bar{
+    display:flex; gap:6px; align-items:center;
+    padding:10px 14px; border-bottom:1px solid var(--line);
+  }
+  .dot{width:9px; height:9px; border-radius:50%;}
+  .dot.r{background:#e05d5d;} .dot.y{background:#e8b84b;} .dot.g{background:#5fbf6f;}
+  .terminal-title{margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--ink-dim);}
+  .terminal-body{padding:22px 20px 26px; font-family:var(--mono); font-size:14.5px;}
+  .prompt{color:var(--teal);}
+  .cmd{color:var(--ink);}
+  .out{color:var(--ink-dim); margin:4px 0 14px; white-space:pre-wrap;}
+  .cursor{display:inline-block; width:8px; height:16px; background:var(--amber); vertical-align:middle; animation:blink 1s step-end infinite; margin-left:2px;}
+  @keyframes blink{50%{opacity:0;}}
+
+  .avatar-wrap{
+    display:flex; justify-content:center; margin:34px 0 6px;
+  }
+  .avatar{
+    width:132px; height:132px; border-radius:50%;
+    object-fit:cover; object-position:center top;
+    border:3px solid var(--teal);
+    box-shadow:0 0 0 6px rgba(95,201,191,0.12), 0 20px 40px -18px rgba(0,0,0,0.7);
+  }
+
+  h1.name{
+    font-family:var(--disp); font-weight:700; font-size:clamp(30px,5vw,42px);
+    margin:26px 0 4px; letter-spacing:-0.01em;
+    text-align:center;
+  }
+  .role{font-family:var(--disp); font-size:18px; color:var(--amber); font-weight:600; margin:0 0 16px; text-align:center;}
+  .tagline{color:var(--ink-dim); max-width:56ch; margin:0 auto 20px; font-size:15.5px; text-align:center;}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; justify-content:center;}
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:9px 16px; border-radius:var(--radius);
+    border:1px solid var(--line); color:var(--ink); transition:all .15s ease;
+  }
+  .btn:hover{border-color:var(--teal); color:var(--teal); text-decoration:none;}
+  .btn.primary{background:var(--teal); color:#0c1417; border-color:var(--teal); font-weight:600;}
+  .btn.primary:hover{background:#7ad8cf; color:#0c1417;}
+
+  /* ---- sections ---- */
+  section{padding:44px 0; border-top:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; color:var(--teal); letter-spacing:0.08em;
+    text-transform:uppercase; margin:0 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"//"; color:var(--amber-dim);}
+  h2{font-family:var(--disp); font-size:22px; margin:0 0 18px;}
+
+  /* gemfile-style skills */
+  .gemfile{
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:6px;
+    padding:18px 20px; font-family:var(--mono); font-size:13.5px; overflow-x:auto;
+  }
+  .gemfile .gem-line{white-space:pre; color:var(--ink-dim);}
+  .gemfile .gem-line .g{color:var(--teal);}
+  .gemfile .gem-line .v{color:var(--amber);}
+  .gemfile .comment{color:#556069;}
+
+  /* experience as commit log */
+  .commit{
+    display:grid; grid-template-columns:18px 1fr; gap:0 16px; position:relative;
+  }
+  .commit-line{
+    position:relative;
+  }
+  .commit-line::before{
+    content:""; position:absolute; left:5px; top:4px; width:8px; height:8px; border-radius:50%;
+    background:var(--teal); box-shadow:0 0 0 3px rgba(95,201,191,0.15);
+  }
+  .commit-line::after{
+    content:""; position:absolute; left:8px; top:14px; bottom:-28px; width:1px; background:var(--line);
+  }
+  .job:last-child .commit-line::after{display:none;}
+  .job{display:grid; grid-template-columns:18px 1fr; gap:0 16px; padding-bottom:28px;}
+  .job-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:4px;}
+  .job-role{font-family:var(--disp); font-weight:600; font-size:16.5px;}
+  .job-dates{font-family:var(--mono); font-size:12px; color:var(--ink-dim);}
+  .job-company{font-family:var(--mono); font-size:13px; color:var(--amber); margin-bottom:6px;}
+  .job-desc{color:var(--ink-dim); font-size:14.5px; margin:0;}
+
+  /* projects */
+  .project{
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:6px;
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .project h3{font-family:var(--disp); font-size:16px; margin:0 0 6px;}
+  .project p{color:var(--ink-dim); font-size:14px; margin:0 0 10px;}
+  .tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .tag{
+    font-family:var(--mono); font-size:11px; color:var(--teal); border:1px solid var(--line);
+    padding:3px 8px; border-radius:20px; background:rgba(95,201,191,0.06);
+  }
+  .project-links a{font-family:var(--mono); font-size:12.5px; margin-right:14px;}
+
+  footer{padding:32px 0 60px; border-top:1px solid var(--line);}
+  footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; align-items:center;}
+  footer p{color:var(--ink-dim); font-size:13px; margin:0; font-family:var(--mono);}
+
+  @media (max-width:600px){
+    nav a{margin-left:12px;}
+    .terminal-body{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><strong>lalit</strong>@portfolio<span style="color:var(--ink-dim)">:~$</span></div>
+    <nav>
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="terminal-title">whoami.rb</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="cmd">ruby whoami.rb</span></div>
+        <div class="out">loading developer profile...
+&gt; 6+ years professional Ruby &amp; Rails
+&gt; PostgreSQL admin: indexing, backups, replication
+&gt; currently building on Intuit's GoCo platform
+&gt; open for remote contract work (EU / US)<span class="cursor"></span></div>
+      </div>
+    </div>
+
+    <div class="avatar-wrap">
+      <img class="avatar" src="profile.jpg" alt="Lalit Hammad">
+    </div>
+    <h1 class="name">Lalit Hammad</h1>
+    <p class="role">Senior Ruby on Rails Developer</p>
+    <p class="tagline">I build and maintain Rails systems that handle real traffic — inventory platforms, business management tools, and legacy upgrades that other developers avoid touching. Remote-first, available now.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:your-email@example.com">Email me</a>
+      <a class="btn" href="https://github.com/Lalithammad" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="#" id="cv-link">Download CV ↓</a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="eyebrow">git log --author=lalit</p>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="commit-line"></div>
+      <div>
+        <div class="job-head">
+          <span class="job-role">Ruby on Rails Developer</span>
+          <span class="job-dates">Jan 2026 — Present</span>
+        </div>
+        <div class="job-company">Intuit · GoCo (QuickBooks Benefits Admin Platform) · Contract</div>
+        <p class="job-desc">Contract Rails developer on Intuit's GoCo benefits-administration platform for QuickBooks.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="commit-line"></div>
+      <div>
+        <div class="job-head">
+          <span class="job-role">Ruby on Rails Developer</span>
+          <span class="job-dates">Aug 2022 — Dec 2025</span>
+        </div>
+        <div class="job-company">Tuosystems / VcdInfotech</div>
+        <p class="job-desc">Built and maintained an inventory management system for a high-traffic e-commerce platform — PostgreSQL, Sidekiq, AWS S3/MinIO, Stripe.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="commit-line"></div>
+      <div>
+        <div class="job-head">
+          <span class="job-role">Ruby on Rails Developer</span>
+          <span class="job-dates">Sep 2021 — Aug 2022</span>
+        </div>
+        <div class="job-company">Witmates</div>
+        <p class="job-desc">Developed backend systems for Smartpath, a business management platform.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="commit-line"></div>
+      <div>
+        <div class="job-head">
+          <span class="job-role">Ruby Developer</span>
+          <span class="job-dates">Mar 2021 — Sep 2021</span>
+        </div>
+        <div class="job-company">Thoughtmines</div>
+        <p class="job-desc">Led a legacy upgrade of the ACMS system: Ruby 1.3 → 3.0, Rails 3.2 → 5.8.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="commit-line"></div>
+      <div>
+        <div class="job-head">
+          <span class="job-role">Python Developer (Intern)</span>
+          <span class="job-dates">2020 — 2021</span>
+        </div>
+        <p class="job-desc">Python development internships prior to specializing in Ruby on Rails.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">bundle list</p>
+    <h2>Skills</h2>
+    <div class="gemfile">
+<div class="gem-line"><span class="comment"># languages &amp; frameworks</span></div>
+<div class="gem-line"><span class="g">ruby-on-rails</span>    <span class="v">(3.2 → 7)</span></div>
+<div class="gem-line"><span class="g">python-django</span></div>
+<div class="gem-line"><span class="comment"># data</span></div>
+<div class="gem-line"><span class="g">postgresql</span>       <span class="v">admin, tuning, indexing, backups, replication</span></div>
+<div class="gem-line"><span class="g">mysql</span></div>
+<div class="gem-line"><span class="comment"># infra</span></div>
+<div class="gem-line"><span class="g">aws</span>               <span class="v">s3, minio</span></div>
+<div class="gem-line"><span class="g">docker</span> / <span class="g">kubernetes</span> <span class="v">(working exposure)</span></div>
+<div class="gem-line"><span class="comment"># core gems</span></div>
+<div class="gem-line"><span class="g">sidekiq</span>, <span class="g">devise</span>, <span class="g">jwt</span>, <span class="g">cancancan</span>, <span class="g">activeadmin</span></div>
+<div class="gem-line"><span class="g">rspec</span>, <span class="g">selenium</span>, <span class="g">bullet</span></div>
+<div class="gem-line"><span class="comment"># integrations</span></div>
+<div class="gem-line"><span class="g">stripe</span>, <span class="g">sendgrid</span>, <span class="g">hellosign</span></div>
+<div class="gem-line"><span class="comment"># ai / llm</span></div>
+<div class="gem-line"><span class="g">openai-api</span>, <span class="g">anthropic-api</span> <span class="v">RAG, prompt engineering</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow">ls ./projects</p>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Inventory Management System</h3>
+      <p>Inventory system for a high-traffic e-commerce platform — order flow, stock sync, and payment processing at scale.</p>
+      <div class="tags">
+        <span class="tag">rails</span><span class="tag">postgresql</span><span class="tag">sidekiq</span><span class="tag">stripe</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>ACMS Legacy Upgrade</h3>
+      <p>End-to-end upgrade of a legacy Ruby application: Ruby 1.3 → 3.0 and Rails 3.2 → 5.8, with zero downtime for the client.</p>
+      <div class="tags">
+        <span class="tag">ruby</span><span class="tag">rails</span><span class="tag">migration</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Smartpath</h3>
+      <p>Backend for a business management platform covering core operational workflows.</p>
+      <div class="tags">
+        <span class="tag">rails</span><span class="tag">devise</span><span class="tag">cancancan</span>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;"><a href="https://github.com/Lalithammad" target="_blank" rel="noopener">→ See more on GitHub</a></p>
+  </section>
+
+  <section id="contact">
+    <p class="eyebrow">contact --remote</p>
+    <h2>Let's work together</h2>
+    <p style="color:var(--ink-dim); max-width:56ch;">Available now for remote contract work, EU/US time zones. Reach out directly — no agency in between.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:your-email@example.com">your-email@example.com</a>
+      <a class="btn" href="https://github.com/Lalithammad" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Lalit Hammad</p>
+    <p>built with rails energy, deployed on github pages</p>
+  </div>
+</footer>
+
+</body>
+</html>
